@@ -24,11 +24,14 @@ jobs:
          ECR_REPOSITORY=$ECR_REPOSITORY
          IMAGE_TAG=latest
          # Build the Docker image
-         docker build -t $ECR_REPOSITORY:latest .
+         #docker build -t $ECR_REPOSITORY:latest .
+         docker build -t jatinbhalla .
          # Tag the Docker image
-         docker tag $ECR_REPOSITORY:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+         #docker tag $ECR_REPOSITORY:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+         docker tag jatinbhalla:latest 311141545374.dkr.ecr.us-east-1.amazonaws.com/jatinbhalla:latest
          # Push the Docker image to ECR
-         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+         #docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+         docker push 311141545374.dkr.ecr.us-east-1.amazonaws.com/jatinbhalla:latest
      - name: Deploy to AWS App Runner
        run: |
          # Update App Runner service to use the new image
