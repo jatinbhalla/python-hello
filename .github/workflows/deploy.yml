@@ -36,5 +36,5 @@ jobs:
        run: |
          # Update App Runner service to use the new image
          aws apprunner update-service \
-           --service-arn arn:aws:apprunner:us-east-1:${{ secrets.AWS_ACCOUNT_ID }}:service/your-app-runner-service \
+           --service-arn arn:aws:apprunner:us-east-1:${{ secrets.AWS_ACCOUNT_ID }}:service/jatintest \
            --source-configuration ImageRepository={"ImageIdentifier=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest","ImageRepositoryType=ECR"}
